@@ -4,7 +4,7 @@ import useAuth from './useAuth';
 import { useNavigate } from 'react-router-dom';
 
 const axiosSecure = axios.create({
-        baseURL: 'https://zap-shift-server-plum-two.vercel.app'
+        baseURL: ''
 
     })
 

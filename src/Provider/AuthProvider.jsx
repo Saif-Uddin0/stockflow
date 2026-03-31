@@ -45,11 +45,18 @@ const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
+  const updateUserProfile = async (name, photo = '') => {
+    await updateProfile(auth.currentUser, { displayName: name, photoURL: photo || '' });
+    // Manually update local state to trigger UI refresh
+    setUser({ ...auth.currentUser, displayName: name, photoURL: photo || '' });
+  };
+
   const authinfo = {
     registerUser,
     signInUser,
     signOutUser,
     googleSignIn,
+    updateUserProfile,
     user,
     setUser,
     loading,
