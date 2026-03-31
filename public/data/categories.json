@@ -1,0 +1,6 @@
+[
+  { "id": "cat-1", "name": "Electronics", "description": "Gadgets, devices, and accessories", "productCount": 4, "createdAt": "2025-01-10T08:00:00Z" },
+  { "id": "cat-2", "name": "Clothing",    "description": "Apparel and fashion items",        "productCount": 3, "createdAt": "2025-01-12T09:30:00Z" },
+  { "id": "cat-3", "name": "Grocery",     "description": "Food and daily essentials",        "productCount": 2, "createdAt": "2025-01-15T10:00:00Z" },
+  { "id": "cat-4", "name": "Furniture",   "description": "Home and office furniture",        "productCount": 2, "createdAt": "2025-02-01T07:00:00Z" }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "rq-1",
+    "productId": "prod-3",
+    "productName": "Sony WH-1000XM5 Headphones",
+    "categoryName": "Electronics",
+    "currentStock": 0,
+    "minThreshold": 5,
+    "priority": "high",
+    "addedAt": "2025-03-25T11:00:00Z"
+  },
+  {
+    "id": "rq-2",
+    "productId": "prod-11",
+    "productName": "Standing Desk",
+    "categoryName": "Furniture",
+    "currentStock": 0,
+    "minThreshold": 2,
+    "priority": "high",
+    "addedAt": "2025-03-30T10:30:00Z"
+  },
+  {
+    "id": "rq-3",
+    "productId": "prod-9",
+    "productName": "Olive Oil (1L)",
+    "categoryName": "Grocery",
+    "currentStock": 2,
+    "minThreshold": 10,
+    "priority": "high",
+    "addedAt": "2025-04-01T09:35:00Z"
+  },
+  {
+    "id": "rq-4",
+    "productId": "prod-1",
+    "productName": "iPhone 13",
+    "categoryName": "Electronics",
+    "currentStock": 3,
+    "minThreshold": 5,
+    "priority": "medium",
+    "addedAt": "2025-04-01T08:00:00Z"
+  },
+  {
+    "id": "rq-5",
+    "productId": "prod-6",
+    "productName": "Denim Jeans",
+    "categoryName": "Clothing",
+    "currentStock": 4,
+    "minThreshold": 8,
+    "priority": "medium",
+    "addedAt": "2025-03-31T14:00:00Z"
+  }
+]

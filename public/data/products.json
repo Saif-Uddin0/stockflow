@@ -1,0 +1,123 @@
+[
+  {
+    "id": "prod-1",
+    "name": "iPhone 13",
+    "category": "cat-1",
+    "categoryName": "Electronics",
+    "price": 799,
+    "stock": 3,
+    "minThreshold": 5,
+    "status": "active",
+    "createdAt": "2025-01-20T10:00:00Z"
+  },
+  {
+    "id": "prod-2",
+    "name": "Samsung Galaxy S23",
+    "category": "cat-1",
+    "categoryName": "Electronics",
+    "price": 699,
+    "stock": 12,
+    "minThreshold": 5,
+    "status": "active",
+    "createdAt": "2025-01-22T11:00:00Z"
+  },
+  {
+    "id": "prod-3",
+    "name": "Sony WH-1000XM5 Headphones",
+    "category": "cat-1",
+    "categoryName": "Electronics",
+    "price": 349,
+    "stock": 0,
+    "minThreshold": 5,
+    "status": "out_of_stock",
+    "createdAt": "2025-01-25T09:00:00Z"
+  },
+  {
+    "id": "prod-4",
+    "name": "MacBook Air M2",
+    "category": "cat-1",
+    "categoryName": "Electronics",
+    "price": 1199,
+    "stock": 7,
+    "minThreshold": 3,
+    "status": "active",
+    "createdAt": "2025-02-01T08:00:00Z"
+  },
+  {
+    "id": "prod-5",
+    "name": "Classic White T-Shirt",
+    "category": "cat-2",
+    "categoryName": "Clothing",
+    "price": 25,
+    "stock": 40,
+    "minThreshold": 10,
+    "status": "active",
+    "createdAt": "2025-02-05T10:00:00Z"
+  },
+  {
+    "id": "prod-6",
+    "name": "Denim Jeans",
+    "category": "cat-2",
+    "categoryName": "Clothing",
+    "price": 65,
+    "stock": 4,
+    "minThreshold": 8,
+    "status": "active",
+    "createdAt": "2025-02-06T11:00:00Z"
+  },
+  {
+    "id": "prod-7",
+    "name": "Running Shoes",
+    "category": "cat-2",
+    "categoryName": "Clothing",
+    "price": 120,
+    "stock": 18,
+    "minThreshold": 5,
+    "status": "active",
+    "createdAt": "2025-02-07T09:30:00Z"
+  },
+  {
+    "id": "prod-8",
+    "name": "Basmati Rice (5kg)",
+    "category": "cat-3",
+    "categoryName": "Grocery",
+    "price": 12,
+    "stock": 50,
+    "minThreshold": 15,
+    "status": "active",
+    "createdAt": "2025-02-10T08:00:00Z"
+  },
+  {
+    "id": "prod-9",
+    "name": "Olive Oil (1L)",
+    "category": "cat-3",
+    "categoryName": "Grocery",
+    "price": 18,
+    "stock": 2,
+    "minThreshold": 10,
+    "status": "active",
+    "createdAt": "2025-02-12T09:00:00Z"
+  },
+  {
+    "id": "prod-10",
+    "name": "Ergonomic Office Chair",
+    "category": "cat-4",
+    "categoryName": "Furniture",
+    "price": 450,
+    "stock": 5,
+    "minThreshold": 3,
+    "status": "active",
+    "createdAt": "2025-03-01T10:00:00Z"
+  },
+  {
+    "id": "prod-11",
+    "name": "Standing Desk",
+    "category": "cat-4",
+    "categoryName": "Furniture",
+    "price": 620,
+    "stock": 0,
+    "minThreshold": 2,
+    "status": "out_of_stock",
+    "createdAt": "2025-03-05T11:00:00Z"
+  }
+]

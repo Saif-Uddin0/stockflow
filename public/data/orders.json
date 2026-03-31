@@ -1,0 +1,66 @@
+[
+  {
+    "id": "ord-1001",
+    "customerName": "Alice Johnson",
+    "items": [
+      { "productId": "prod-1", "productName": "iPhone 13",          "price": 799, "qty": 1 },
+      { "productId": "prod-5", "productName": "Classic White T-Shirt","price": 25,  "qty": 2 }
+    ],
+    "totalPrice": 849,
+    "status": "delivered",
+    "createdAt": "2025-03-28T10:15:00Z"
+  },
+  {
+    "id": "ord-1002",
+    "customerName": "Bob Martinez",
+    "items": [
+      { "productId": "prod-4", "productName": "MacBook Air M2", "price": 1199, "qty": 1 }
+    ],
+    "totalPrice": 1199,
+    "status": "shipped",
+    "createdAt": "2025-03-29T11:30:00Z"
+  },
+  {
+    "id": "ord-1003",
+    "customerName": "Clara Nguyen",
+    "items": [
+      { "productId": "prod-2", "productName": "Samsung Galaxy S23", "price": 699, "qty": 1 },
+      { "productId": "prod-6", "productName": "Denim Jeans",         "price": 65,  "qty": 2 }
+    ],
+    "totalPrice": 829,
+    "status": "confirmed",
+    "createdAt": "2025-03-30T09:00:00Z"
+  },
+  {
+    "id": "ord-1004",
+    "customerName": "David Kim",
+    "items": [
+      { "productId": "prod-8", "productName": "Basmati Rice (5kg)", "price": 12, "qty": 5 },
+      { "productId": "prod-9", "productName": "Olive Oil (1L)",     "price": 18, "qty": 2 }
+    ],
+    "totalPrice": 96,
+    "status": "pending",
+    "createdAt": "2025-04-01T08:00:00Z"
+  },
+  {
+    "id": "ord-1005",
+    "customerName": "Eve Robinson",
+    "items": [
+      { "productId": "prod-10", "productName": "Ergonomic Office Chair", "price": 450, "qty": 1 },
+      { "productId": "prod-7",  "productName": "Running Shoes",           "price": 120, "qty": 1 }
+    ],
+    "totalPrice": 570,
+    "status": "pending",
+    "createdAt": "2025-04-01T09:30:00Z"
+  },
+  {
+    "id": "ord-1006",
+    "customerName": "Frank Lee",
+    "items": [
+      { "productId": "prod-5", "productName": "Classic White T-Shirt", "price": 25, "qty": 3 }
+    ],
+    "totalPrice": 75,
+    "status": "cancelled",
+    "createdAt": "2025-03-27T14:00:00Z"
+  }
+]

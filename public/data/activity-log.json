@@ -1,0 +1,62 @@
+[
+  {
+    "id": "log-001",
+    "message": "Order #1001 marked as Delivered",
+    "type": "order",
+    "timestamp": "2025-03-28T15:20:00Z"
+  },
+  {
+    "id": "log-002",
+    "message": "Order #1002 marked as Shipped",
+    "type": "order",
+    "timestamp": "2025-03-29T13:45:00Z"
+  },
+  {
+    "id": "log-003",
+    "message": "Stock updated for \"iPhone 13\" (+10 units)",
+    "type": "stock",
+    "timestamp": "2025-03-30T10:00:00Z"
+  },
+  {
+    "id": "log-004",
+    "message": "Product \"Standing Desk\" added to Restock Queue",
+    "type": "restock",
+    "timestamp": "2025-03-30T10:30:00Z"
+  },
+  {
+    "id": "log-005",
+    "message": "Order #1003 created by user",
+    "type": "order",
+    "timestamp": "2025-03-30T09:00:00Z"
+  },
+  {
+    "id": "log-006",
+    "message": "New product \"Ergonomic Office Chair\" added",
+    "type": "product",
+    "timestamp": "2025-03-01T10:00:00Z"
+  },
+  {
+    "id": "log-007",
+    "message": "Order #1004 created by user",
+    "type": "order",
+    "timestamp": "2025-04-01T08:00:00Z"
+  },
+  {
+    "id": "log-008",
+    "message": "Order #1005 created by user",
+    "type": "order",
+    "timestamp": "2025-04-01T09:30:00Z"
+  },
+  {
+    "id": "log-009",
+    "message": "\"Olive Oil (1L)\" stock is critically low — added to Restock Queue",
+    "type": "restock",
+    "timestamp": "2025-04-01T09:35:00Z"
+  },
+  {
+    "id": "log-010",
+    "message": "Category \"Furniture\" created",
+    "type": "category",
+    "timestamp": "2025-02-01T07:00:00Z"
+  }
+]
