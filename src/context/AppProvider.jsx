@@ -83,7 +83,7 @@ const AppProvider = ({ children }) => {
   };
 
   // ── Order helpers ──────────────────────────────────────────
-  const createOrder = (orderData) => {
+  const addOrder = (orderData) => {
     const id = `ord-${1000 + orders.length + 1}`;
     const newOrder = { ...orderData, id, status: 'pending', createdAt: new Date().toISOString() };
 
@@ -166,7 +166,7 @@ const AppProvider = ({ children }) => {
     products, categories, orders, restockQueue, activityLog, loading, stats,
     // actions
     addProduct, updateProductStock, addCategory,
-    createOrder, updateOrderStatus, cancelOrder,
+    addOrder, updateOrderStatus, cancelOrder,
     restockProduct, removeFromRestockQueue, addLog,
   };
 
