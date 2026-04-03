@@ -3,7 +3,7 @@ import { AppContext } from './AppContext';
 import useAuth from '../hooks/useAuth';
 import axios from 'axios';
 
-const api = axios.create({ baseURL: 'http://localhost:3000' });
+const api = axios.create({ baseURL: 'https://stockflow-server-mu.vercel.app' });
 
 const AppProvider = ({ children }) => {
   const { user } = useAuth();
