@@ -133,16 +133,15 @@ const Dashboard = () => {
                 >
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <p style={{ fontSize: '0.85rem', fontWeight: 500, color: 'var(--text)', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                      {p.name}
+                      {p.name} — <span style={{ color: isOOS ? 'var(--danger)' : isLow ? 'var(--warning)' : 'var(--text-muted)', fontWeight: 400 }}>
+                        {isOOS ? 'Out of Stock' : `${p.stock} ${p.stock === 1 ? 'item' : 'items'} left`}
+                      </span>
                     </p>
                     <p style={{ fontSize: '0.72rem', color: 'var(--text-faint)', margin: 0 }}>{p.categoryName}</p>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
-                    <span style={{ fontSize: '0.78rem', color: isOOS ? 'var(--danger)' : isLow ? 'var(--warning)' : 'var(--text-muted)' }}>
-                      {isOOS ? 'Out of stock' : `${p.stock} left`}
-                    </span>
                     <span className={`badge ${isOOS ? 'badge-danger' : isLow ? 'badge-warning' : 'badge-success'}`}>
-                      {isOOS ? 'OOS' : isLow ? 'Low' : 'OK'}
+                      {isOOS ? 'Out of Stock' : isLow ? 'Low Stock' : 'OK'}
                     </span>
                   </div>
                 </div>

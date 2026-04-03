@@ -5,12 +5,14 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router';
 import useAppContext from '../../hooks/useAppContext';
+import Modal from '../../components/ui/Modal';
 
 const ProductList = () => {
   const { products, categories, loading } = useAppContext();
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [statusFilter, setStatusFilter] = useState('all');
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const filteredProducts = products.filter(p => {
     const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase());
@@ -89,13 +91,77 @@ const ProductList = () => {
                 </div>
                 <div style={{ padding: '12px 20px', borderTop: '1px solid var(--border-light)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <span style={{ fontSize: '0.75rem', color: 'var(--text-faint)' }}>Min: {p.minThreshold}</span>
-                  <button className="btn btn-ghost btn-sm">Details <ArrowUpRight size={14} /></button>
+                  <button onClick={() => setSelectedProduct(p)} className="btn btn-ghost btn-sm">Details <ArrowUpRight size={14} /></button>
                 </div>
               </div>
             );
           })}
         </div>
       )}
+
+      {/* ── Product Details Modal ─────────────────────────── */}
+      <Modal 
+        isOpen={!!selectedProduct} 
+        onClose={() => setSelectedProduct(null)} 
+        title="Product Information"
+      >
+        {selectedProduct && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+            <div>
+              <p style={{ fontSize: '0.75rem', color: 'var(--text-faint)', textTransform: 'uppercase', marginBottom: 4 }}>Full Name</p>
+              <p style={{ fontSize: '1.2rem', fontWeight: 700 }}>{selectedProduct.name}</p>
+            </div>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+              <div>
+                <p style={{ fontSize: '0.75rem', color: 'var(--text-faint)', textTransform: 'uppercase', marginBottom: 4 }}>Category</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontWeight: 500 }}>
+                  <Layers size={14} /> {selectedProduct.categoryName}
+                </div>
+              </div>
+              <div>
+                <p style={{ fontSize: '0.75rem', color: 'var(--text-faint)', textTransform: 'uppercase', marginBottom: 4 }}>Current Status</p>
+                <span className={`badge ${selectedProduct.stock === 0 ? 'badge-danger' : 'badge-success'}`}>
+                  {selectedProduct.stock === 0 ? 'Out of Stock' : 'Active'}
+                </span>
+              </div>
+            </div>
+
+            <div style={{ padding: '16px 20px', background: 'var(--bg-surface2)', borderRadius: 12, display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10 }}>
+              <div style={{ textAlign: 'center' }}>
+                <p style={{ fontSize: '0.7rem', color: 'var(--text-faint)', textTransform: 'uppercase', marginBottom: 4 }}>Price</p>
+                <p style={{ fontWeight: 700, fontSize: '1.1rem' }}>${selectedProduct.price}</p>
+              </div>
+              <div style={{ textAlign: 'center', borderLeft: '1px solid var(--border-light)', borderRight: '1px solid var(--border-light)' }}>
+                <p style={{ fontSize: '0.7rem', color: 'var(--text-faint)', textTransform: 'uppercase', marginBottom: 4 }}>Stock</p>
+                <p style={{ fontWeight: 700, fontSize: '1.1rem' }}>{selectedProduct.stock}</p>
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <p style={{ fontSize: '0.7rem', color: 'var(--text-faint)', textTransform: 'uppercase', marginBottom: 4 }}>Threshold</p>
+                <p style={{ fontWeight: 700, fontSize: '1.1rem' }}>{selectedProduct.minThreshold}</p>
+              </div>
+            </div>
+
+            {selectedProduct.stock < selectedProduct.minThreshold && (
+              <div style={{ padding: '12px 16px', background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.2)', borderRadius: 8, display: 'flex', alignItems: 'center', gap: 10 }}>
+                <AlertCircle size={16} color="var(--warning)" />
+                <p style={{ fontSize: '0.85rem', color: 'var(--warning)', margin: 0, fontWeight: 500 }}>
+                  Warning: Stock is below minimum threshold.
+                </p>
+              </div>
+            )}
+
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 10 }}>
+              <button 
+                onClick={() => setSelectedProduct(null)}
+                className="btn btn-primary"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
+      </Modal>
     </div>
   );
 };

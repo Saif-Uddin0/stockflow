@@ -30,18 +30,16 @@ const CreateOrder = () => {
   const addToCart = (product) => {
     const existing = cart.find(item => item.productId === product.id);
     if (existing) {
-      if (existing.qty >= product.stock) {
-        toast.error(`Only ${product.stock} units available.`);
-        return;
-      }
-      setCart(cart.map(item => item.productId === product.id ? { ...item, qty: item.qty + 1 } : item));
-    } else {
-      if (product.stock <= 0) {
-        toast.error('Out of stock.');
-        return;
-      }
-      setCart([...cart, { productId: product.id, productName: product.name, price: product.price, qty: 1, stock: product.stock }]);
+      toast.error("This product is already added to the order.");
+      return;
+    } 
+
+    if (product.stock <= 0) {
+      toast.error("This product is currently unavailable.");
+      return;
     }
+
+    setCart([...cart, { productId: product.id, productName: product.name, price: product.price, qty: 1, stock: product.stock }]);
     setSearchTerm('');
   };
 
@@ -50,11 +48,18 @@ const CreateOrder = () => {
       if (item.productId === productId) {
         const newQty = item.qty + delta;
         if (newQty <= 0) return item;
-        if (newQty > item.stock) return item;
+        if (newQty > item.stock) {
+          toast.error(`Only ${item.stock} items available in stock.`);
+          return item;
+        }
         return { ...item, qty: newQty };
       }
       return item;
     }));
+  };
+
+  const removeFromCart = (productId) => {
+    setCart(cart.filter(item => item.productId !== productId));
   };
 
   const handlePlaceOrder = async () => {

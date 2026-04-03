@@ -21,15 +21,18 @@ const AppProvider = ({ children }) => {
   });
   const [loading, setLoading]           = useState(true);
 
-  const getAuthHeaders = () => ({
-    headers: { Authorization: `Bearer ${user?.accessToken}` }
-  });
+  const getAuthHeaders = async () => {
+    const token = user ? await user.getIdToken() : null;
+    return {
+      headers: { Authorization: `Bearer ${token}` }
+    };
+  };
 
   const fetchAllData = async () => {
-    if (!user?.accessToken) return;
+    if (!user) return; // Wait until Firebase returns the user
     setLoading(true);
     try {
-      const headers = getAuthHeaders();
+      const headers = await getAuthHeaders();
       const [pRes, cRes, oRes, rqRes, alRes, sRes] = await Promise.all([
         api.get('/products', headers).catch(() => ({ data: [] })),
         api.get('/categories', headers).catch(() => ({ data: [] })),
@@ -76,12 +79,12 @@ const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (user?.accessToken) {
+    if (user) {
       fetchAllData();
     } else {
       setLoading(false);
     }
-  }, [user?.accessToken]);
+  }, [user]);
 
   // ── Product helpers ────────────────────────────────────────
   const addProduct = async (product) => {
@@ -93,18 +96,18 @@ const AppProvider = ({ children }) => {
       stockQuantity: product.stock,
       minStockThreshold: product.minThreshold
     };
-    await api.post('/products', payload, getAuthHeaders());
+    await api.post('/products', payload, await getAuthHeaders());
     await fetchAllData();
   };
 
   const updateProductStock = async (productId, newStock) => {
-    await api.put(`/products/${productId}`, { stockQuantity: newStock }, getAuthHeaders());
+    await api.put(`/products/${productId}`, { stockQuantity: newStock }, await getAuthHeaders());
     await fetchAllData();
   };
 
   // ── Category helpers ───────────────────────────────────────
   const addCategory = async (category) => {
-    await api.post('/categories', category, getAuthHeaders());
+    await api.post('/categories', category, await getAuthHeaders());
     await fetchAllData();
   };
 
@@ -120,12 +123,12 @@ const AppProvider = ({ children }) => {
         productName: item.productName
       }))
     };
-    await api.post('/orders', payload, getAuthHeaders());
+    await api.post('/orders', payload, await getAuthHeaders());
     await fetchAllData();
   };
 
   const updateOrderStatus = async (orderId, newStatus) => {
-    await api.put(`/orders/${orderId}`, { status: newStatus }, getAuthHeaders());
+    await api.put(`/orders/${orderId}`, { status: newStatus }, await getAuthHeaders());
     await fetchAllData();
   };
 
