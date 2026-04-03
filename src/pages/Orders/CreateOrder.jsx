@@ -30,7 +30,13 @@ const CreateOrder = () => {
   const addToCart = (product) => {
     const existing = cart.find(item => item.productId === product.id);
     if (existing) {
-      toast.error("This product is already added to the order.");
+      if (existing.qty >= product.stock) {
+        toast.error(`Only ${product.stock} items available in stock.`);
+        return;
+      }
+      setCart(cart.map(item => item.productId === product.id ? { ...item, qty: item.qty + 1 } : item));
+      toast.success(`Incremented quantity for ${product.name}!`);
+      setSearchTerm('');
       return;
     } 
 
