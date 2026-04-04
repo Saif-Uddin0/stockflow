@@ -42,7 +42,7 @@ const RestockQueue = () => {
       <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
         {[...Array(4)].map((_, i) => (
           <div key={i} className="skeleton" style={{ height: 100, borderRadius: 'var(--radius)' }} />
-        ))}
+        ))};
       </div>
     );
   }
